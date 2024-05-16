@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Random Close Button</title>
+</head>
+<body>
+    <button id="closeButton">Close Site</button>
+
+    <script>
+        // Generate a random number between 1 and 10 for the number of presses needed to close the site
+        var closeAfterPresses = Math.floor(Math.random() * 10) + 1;
+        var currentPressCount = 0;
+
+        document.getElementById('closeButton').addEventListener('click', function() {
+            currentPressCount++;
+            if (currentPressCount >= closeAfterPresses) {
+                window.close(); // This will close the current window
+            } else {
+                alert('Site will close after ' + (closeAfterPresses - currentPressCount) + ' more presses.');
+            }
+        });
+    </script>
+</body>
+</html>
